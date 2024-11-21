@@ -1,0 +1,66 @@
+Para finalizarmos as atividades em banco de dados, tivemos que criar tabelas de acordo com os códigos disponibilizado aos grupos. Utilizamos a linguagem Java para garantir que, ao final, todas as tabelas e databases funcionassem perfeitamente e pudessem ser entregues. Abaixo, estão os dois códigos que desenvolvemos.
+
+
+Primeiro código:
+
+-- Conectar ao banco LOJA
+\c LOJA;
+
+-- Tabela de Marca
+CREATE TABLE marca (
+    cod_marca SERIAL PRIMARY KEY,
+    nome_marca VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Tabela de Produto
+CREATE TABLE produto (
+    cod_prod SERIAL PRIMARY KEY,
+    nome_produto VARCHAR(100) UNIQUE NOT NULL,
+    cod_marca INT REFERENCES marca(cod_marca) ON DELETE SET NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+-- Tabela de Estoque
+CREATE TABLE estoque (
+    cod_estoque SERIAL PRIMARY KEY,
+    cod_prod INT REFERENCES produto(cod_prod) ON DELETE CASCADE,
+    qtd_est INT NOT NULL
+);
+
+
+Segundo código: 
+
+-- Tabela de Clientes
+CREATE TABLE clientes (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefone VARCHAR(20)
+);
+
+-- Tabela de Produtos
+CREATE TABLE produtos (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL,
+    estoque INT NOT NULL
+);
+
+-- Tabela de Pedidos
+CREATE TABLE pedidos (
+    id SERIAL PRIMARY KEY,
+    id_cliente INT REFERENCES clientes(id),
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Itens de Pedido
+CREATE TABLE itens_pedido (
+    id SERIAL PRIMARY KEY,
+    id_pedido INT REFERENCES pedidos(id),
+    id_produto INT REFERENCES produtos(id),
+    quantidade INT NOT NULL,
+    preco_unitario DECIMAL(10, 2) NOT NULL
+); 
+
+
+Caso ainda tenha dúvidas, acesse nossa atividade no Class através do link - https://classroom.google.com/u/1/c/NjI4NjI0NDU0OTM5/a/NzMwNDIzNDk2MDAw/details

@@ -1,3 +1,0 @@
-Nesta atividade, acredito que realizamos a nossa avaliação mais importante desses três anos na parte técnica. Gostei muito de trabalhar nesse aplicativo, principalmente pelas novas descobertas e pela oportunidade de explorar minha criatividade, seja na criação de abas ou nos visuais em geral. Trabalhamos nesse projeto durante alguns meses com o professor Ramon, que nos ensinou desde o início como configurar nosso site. A cada aula, aprimorávamos o projeto com novas descobertas e implementações, incluindo o uso de banco de dados.
-
-Espero que gostem: https://github.com/kauafonseca331/spotifake?authuser=1
